@@ -297,5 +297,15 @@ volumes:
 
 
 * Specifying a value for xpack.encryptedSavedObjects.encryptionKey to enable alerting & actions otherwise you will get “API integration key required”. Add the below (upper case) to the docker-compose.yml on the Kibana section:  XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY="min-any-32-byte-long-encryption-key"
+* Create Certs for kibana & secure browser communication:
+
+   SERVER_SSL_ENABLED=true
+
+   SERVER_SSL_KEY=config/certs/kibana/kibana.key
+
+   SERVER_SSL_CERTIFICATE=config/certs/kibana/kibana.crt
+
+   SERVER_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt 
+
 * Login to docker container as root (-u0)
     * Example: docker exec -it -u0 docker_kibana_1 /bin/bash
